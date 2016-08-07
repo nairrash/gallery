@@ -8,18 +8,28 @@
 <header>
     <% include ../partials/header %>
 </header>
+<h1>Title <%= title %><small> by <%= author.name%></small></h1>
+  <p><%= description %></p>
+</div>
 
 
+  <% for(var i=0; i < elements.length; i++) { %>
+  <div  class="responsive">
+
+  <div class="img">
+
+  <a class="" href="<%= elements[i].permalink %>" target="_blank">
+    <img src="<%= elements[i].data.image.src %>"
+    title="<%= elements[i].data.image.caption %>" alt="<%= elements[i].data.image.caption %>"
+    />
+  </a> 
+  <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+ </div>
+<% } %>
 
 
-
-<!--<main class="container">-->
-    <!--<div class="jumbotron">-->
-        <!--<h1>All the devices seem perfect for now!</h1>-->
-        <!--<p>Templating using ejs</p>-->
-    <!--</div>-->
-
-<!--</main>-->
+ <div class="clearfix"></div>
 
 <footer>
     <% include ../partials/footer %>
