@@ -1,43 +1,55 @@
 
+$bodyFont : 'Roboto Mono';
+$primary-color: #dadcdd;
+$dark-nav:#333;
+$white:#ffffff;
+
+@mixin font-smoothing($smoother) {
+  -webkit-font-smoothing: $smoother;
+     -moz-font-smoothing: $smoother;
+      -ms-font-smoothing: $smoother;
+          font-smoothing: $smoother;  
+}
 body {
     background: #fefefe;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    font-family: 'Roboto Mono';
+    @include font-smoothing(antialiased);
+    font-family: $bodyFont;
+    color:$white;
+    background-color: $primary-color;
 }
 
-nav > ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: right;
-}
-.brand {
-    font-weight: 900;
-    margin-left: 4em;
+nav {
+  background-color: $dark-nav;
+  .brand {
+    margin-left: 2em;
+    letter-spacing: 0.2em;
     margin-top: 1em;
-    letter-spacing: 3px;
-    /*padding: 1%;*/
+    float:left;
+    overflow:hidden;
+  }
+  ul {
+    list-style-type: none;
     overflow: hidden;
-    float: left;
+    li {
+    float: right;
+    a {
+      display:block;
+      color : $white;
+      text-align: center;
+      text-decoration: none;
+      padding: 1em 1em;
+      &:hover  {  
+        background-color: #111;
+      }
+    }
+   
+    }
+  }
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
-li a:hover {
-    background-color: #111;
-}
+
+
+
+
 
