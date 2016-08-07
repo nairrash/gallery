@@ -5,7 +5,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function(app) {
 	
 	app.get('/', function(req, res) {
-		res.render('index');
+		res.render('pages/home');
 	});
 	
 	app.get('/person/:id', function(req, res) {
