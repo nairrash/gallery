@@ -1,0 +1,27 @@
+{
+  "name": "laze",
+  "version": "1.0.0",
+  "description": "A photo grid application using storify's Apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "lazeStory"
+  },
+  "keywords": [
+    "cute",
+    "portfolio",
+    "node",
+    "express",
+    "photo",
+    "grid",
+    "instagram"
+  ],
+  "author": "rashmi nair <nair.rashmi1406@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
