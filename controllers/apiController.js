@@ -3,6 +3,7 @@ var superagent = require('superagent');
 
 var user = 'nairrashmi1406';
 var story_slug = 'nature';
+var story_slug2 = 'san_diego'
 
 //Paste your values
 var api_key = "57a6d5cd8d05fbea7a65bf7c";
@@ -27,7 +28,7 @@ module.exports = function(app) {
 // });
 
 
-app.get('/story',function(req, res){
+app.get('/',function(req, res){
   //Fetch elements from Storify API
   superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug)
     .query({api_key: api_key,
@@ -44,6 +45,40 @@ app.get('/story',function(req, res){
 
 });
 
+
+// app.get('/art',function(req, res){
+//   //Fetch elements from Storify API
+//   superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug)
+//     .query({api_key: api_key,
+//       username: username,
+//       _token: _token})
+//     .set({  Accept: 'application/json' })
+//     .end(function(e, storifyResponse){
+//       if (e) next(e);
+//       //sending back json response     
+//       return res.json(storifyResponse.body.content);  
+// 			//return res.render('pages/home',storifyResponse.body.content);      
+    
+//     });
+
+// });
+
+// app.get('/art',function(req, res){
+//   //Fetch elements from Storify API
+//   superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug2)
+//     .query({api_key: api_key,
+//       username: username,
+//       _token: _token})
+//     .set({  Accept: 'application/json' })
+//     .end(function(e, storifyResponse){
+//       if (e) next(e);
+//       //sending back json response     
+//       return res.json(storifyResponse.body.content);  
+// 			//return res.render('pages/home',storifyResponse.body.content);      
+    
+//     });
+
+// });
 
 	app.get('/api/person/:id', function(req, res) {
 	// get that data from database

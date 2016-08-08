@@ -12,7 +12,7 @@ div {
   }
   }
   .desc {
-    padding: 5em;
+    padding: 1em;
     text-align: center;
   }
   
@@ -37,12 +37,15 @@ div {
     .responsive {
         width: 49.99999%;
         margin: 6px 0;
-    }
+        padding-bottom: 50%;  
+    } 
 }
 
 @media only screen and (max-width: 500px){
     .responsive {
         width: 100%;
+                padding-bottom: 80%;  
+
     }
 }
 

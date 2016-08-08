@@ -1,0 +1,33 @@
+.no-scroll {
+  overflow: hidden; }
+
+.lightBoxBg {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  width: 100%;
+  height: 100%; }
+
+.lightBox {
+  position: fixed;
+  left: 40%;
+  top: 40%;
+  margin: -10em 0 0 -10em;
+  max-width: 100%;
+  display: none; }
+
+.prev {
+  display: inline;
+  position: fixed;
+  left: 4px;
+  top: 50%;
+  width: 40px; }
+
+.next {
+  display: inline;
+  position: fixed;
+  right: 4px;
+  top: 50%;
+  width: 40px; }
