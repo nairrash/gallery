@@ -5,11 +5,11 @@ var ApiService = function ApiService(utility){
   var HISTORY_LIMIT = 25;
 
   this.history = {
-    art :[],
+    art :[],  
     nature : [],
     cars : []
   };
-
+  
   this.getArt = function getArt(callback) {
     var request = {
       url : '/art',
@@ -68,7 +68,7 @@ var ApiService = function ApiService(utility){
   
     AppState = require('./app.state'); 
   
-
+  
     Utility = require('./utility.service');
     LightBoxController = require('./lightbox.controller');
 
@@ -133,24 +133,24 @@ var AppState = function (utility) {
     
 
     switch(route) {
-      case 'art':
+      case 'art':  
       api.getArt(this.processActors.bind(this));
         //controller = require('./explore.controller');
         //this.state.view = views.explore;
         //this.state.controller = new controller(this.state, utility);
         break;
-      case 'explorer':
+      case 'explorer':    
         // controller = require('./deepField.controller');
         // this.state.view = views['deep-field'];
         // this.state.controller = new controller(this.state, $, d3, utility);
         break;
       case 'details':
-        // controller = require('./detail.controller');
+          // controller = require('./detail.controller');
         // this.state.view = this.assignDetailViewByActorType(this.state.source.type);
         // this.state.controller = new controller(this.state, $, d3, utility);
         break;
       // case 'connections':
-      //   controller = require('./drillDown.controller');
+   //   controller = require('./drillDown.controller');
       //   this.state.view = views.drilldown;
       //   this.state.controller = new controller(this.state, $, d3, utility);
       //   break;  
@@ -341,45 +341,22 @@ this.setGetParameters = function (o) {
 module.exports = Utility;
 },{"./api.service":1}],6:[function(require,module,exports){
 this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=this.escapeExpression, alias2=this.lambda;
-
-  return "        <li class=\"span3\"><a class=\"thumbnail\" href=\""
-    + alias1(((helper = (helper = helpers.permalink || (depth0 != null ? depth0.permalink : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"permalink","hash":{},"data":data}) : helper)))
-    + "\" target=\"_blank\"><img src=\""
-    + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
-    + "\" title=\""
-    + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
-    + "\" /></a></li>\n";
-},"3":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class = \"\">\n  <div class = \"img\">\n    <div class=\"thumbnail\">\n      <img src = \""
+  return "<a href = \""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
+    + "\">\n\n<img src = \""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
     + "\" title=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
-    + "\"\n    </div>\n  </div>\n</div>\n";
+    + "\"\n     \n</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression, alias4=this.lambda;
+    var stack1;
 
-  return "gfhgjhgjhb\n"
-    + alias3(((helper = (helper = helpers.sid || (depth0 != null ? depth0.sid : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sid","hash":{},"data":data}) : helper)))
-    + "\n<!--<div class=\"row\">\n      <h1>"
-    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "<small> by "
-    + alias3(alias4(((stack1 = (depth0 != null ? depth0.author : depth0)) != null ? stack1.name : stack1), depth0))
-    + "</small></h1>\n      <p>"
-    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
-    + "</p>\n    </div>\n    <div class=\"row\">\n      <ul class=\"thumbnails\">\n"
+  return "\n<div>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "      </ul>\n    </div>  \n\n\n\n<h1>"
-    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + " <small> "
-    + alias3(alias4(((stack1 = (depth0 != null ? depth0.author : depth0)) != null ? stack1.name : stack1), depth0))
-    + " </small></h1>\n<p>"
-    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
-    + "</p>\n-->\n\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+    + "\n</div>    ";
 },"useData":true});
 },{}]},{},[2]);

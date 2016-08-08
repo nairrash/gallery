@@ -4,11 +4,11 @@ var ApiService = function ApiService(utility){
   var HISTORY_LIMIT = 25;
 
   this.history = {
-    art :[],
+    art :[],  
     nature : [],
     cars : []
   };
-
+  
   this.getArt = function getArt(callback) {
     var request = {
       url : '/art',

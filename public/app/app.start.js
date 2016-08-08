@@ -10,7 +10,7 @@
   
     AppState = require('./app.state'); 
   
-
+  
     Utility = require('./utility.service');
     LightBoxController = require('./lightbox.controller');
 

@@ -68,7 +68,7 @@ app.get('/art',function(req, res,next){
 
 });
 
-app.get('/nature',function(req, res){
+app.get('/nature',function(req, res, next){
   //Fetch elements from Storify API
   superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug2)
     .query({api_key: api_key,

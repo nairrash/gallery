@@ -47,24 +47,24 @@ var AppState = function (utility) {
     
 
     switch(route) {
-      case 'art':
+      case 'art':  
       api.getArt(this.processActors.bind(this));
         //controller = require('./explore.controller');
         //this.state.view = views.explore;
         //this.state.controller = new controller(this.state, utility);
         break;
-      case 'explorer':
+      case 'explorer':    
         // controller = require('./deepField.controller');
         // this.state.view = views['deep-field'];
         // this.state.controller = new controller(this.state, $, d3, utility);
         break;
       case 'details':
-        // controller = require('./detail.controller');
+          // controller = require('./detail.controller');
         // this.state.view = this.assignDetailViewByActorType(this.state.source.type);
         // this.state.controller = new controller(this.state, $, d3, utility);
         break;
       // case 'connections':
-      //   controller = require('./drillDown.controller');
+   //   controller = require('./drillDown.controller');
       //   this.state.view = views.drilldown;
       //   this.state.controller = new controller(this.state, $, d3, utility);
       //   break;  
