@@ -4,9 +4,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
 	
-	// app.get('/', function(req, res) {
-	// 	res.render('pages/home');
-	// });
+	app.get('/', function(req, res) {
+		res.render('pages/index');
+	});
 
 	// app.get('/story', function(req, res) {
 	// 	res.render('pages/home',res);

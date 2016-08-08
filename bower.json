@@ -1,0 +1,31 @@
+{
+  "name": "laze",
+  "description": "A photo grid application using storify's Apis",
+  "main": "index.js",
+  "authors": [
+    "rashmi nair <nair.rashmi1406@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "cute",
+    "portfolio",
+    "node",
+    "express",
+    "photo",
+    "grid",
+    "instagram"
+  ],
+  "homepage": "https://github.com/nairrash/laze-coze",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
+}
