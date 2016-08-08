@@ -65,7 +65,7 @@ var ApiService = function ApiService(utility){
  
     var Utility, AppState, LightBoxController;
     
-
+  
     AppState = require('./app.state'); 
   
 
@@ -153,22 +153,27 @@ var AppState = function (utility) {
       //   controller = require('./drillDown.controller');
       //   this.state.view = views.drilldown;
       //   this.state.controller = new controller(this.state, $, d3, utility);
-      //   break;
+      //   break;  
     }
 
     // this.state.controller.initialize();
   };  
 
   this.processActors = function(request,response){
-   // console.log(response);
-   // console.log(views);
+    // var artData = {
+    //   sid : response.sid,
+    //   title: response.title,    
+    //   // author : response.author.name,
+    //   desc : response.description
+    // };
+    var artData = JSON.parse(response);
+   console.log(JSON.parse(response));
+   // console.log(views);    
     var artTemplate = views['art-partial'];
     // console.log(artTemplate);
     //document.getElementById("pictureGrid").innerHTML = "rash";
-     document.getElementById("pictureGrid").innerHTML = artTemplate(response);
-
-
-  };  
+     document.getElementById("pictureGrid").innerHTML = artTemplate(artData);
+ };  
   
 
 };
@@ -335,7 +340,46 @@ this.setGetParameters = function (o) {
 
 module.exports = Utility;
 },{"./api.service":1}],6:[function(require,module,exports){
-this["art-partial"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "gfhgjhgjhb";
+this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=this.escapeExpression, alias2=this.lambda;
+
+  return "        <li class=\"span3\"><a class=\"thumbnail\" href=\""
+    + alias1(((helper = (helper = helpers.permalink || (depth0 != null ? depth0.permalink : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"permalink","hash":{},"data":data}) : helper)))
+    + "\" target=\"_blank\"><img src=\""
+    + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
+    + "\" title=\""
+    + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
+    + "\" /></a></li>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+
+  return "<div class = \"\">\n  <div class = \"img\">\n    <div class=\"thumbnail\">\n      <img src = \""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
+    + "\" title=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
+    + "\" alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
+    + "\"\n    </div>\n  </div>\n</div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression, alias4=this.lambda;
+
+  return "gfhgjhgjhb\n"
+    + alias3(((helper = (helper = helpers.sid || (depth0 != null ? depth0.sid : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sid","hash":{},"data":data}) : helper)))
+    + "\n<!--<div class=\"row\">\n      <h1>"
+    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + "<small> by "
+    + alias3(alias4(((stack1 = (depth0 != null ? depth0.author : depth0)) != null ? stack1.name : stack1), depth0))
+    + "</small></h1>\n      <p>"
+    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</p>\n    </div>\n    <div class=\"row\">\n      <ul class=\"thumbnails\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "      </ul>\n    </div>  \n\n\n\n<h1>"
+    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + " <small> "
+    + alias3(alias4(((stack1 = (depth0 != null ? depth0.author : depth0)) != null ? stack1.name : stack1), depth0))
+    + " </small></h1>\n<p>"
+    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</p>\n-->\n\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 },{}]},{},[2]);

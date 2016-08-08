@@ -48,7 +48,7 @@ module.exports = function(app) {
 // });
 
 
-app.get('/art',function(req, res){
+app.get('/art',function(req, res,next){
   //Fetch elements from Storify API
   superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug)
     .query({api_key: api_key,
@@ -56,7 +56,10 @@ app.get('/art',function(req, res){
       _token: _token})
     .set({  Accept: 'application/json' })
     .end(function(e, storifyResponse){
-      if (e) next(e);
+      if (e) {  
+        console.log(e)
+        next(e);
+      }
       //sending back json response     
       return res.json(storifyResponse.body.content);  
 			//return res.render('pages/home',storifyResponse.body.content);      

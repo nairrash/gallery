@@ -67,22 +67,27 @@ var AppState = function (utility) {
       //   controller = require('./drillDown.controller');
       //   this.state.view = views.drilldown;
       //   this.state.controller = new controller(this.state, $, d3, utility);
-      //   break;
+      //   break;  
     }
 
     // this.state.controller.initialize();
   };  
 
   this.processActors = function(request,response){
-   // console.log(response);
-   // console.log(views);
+    // var artData = {
+    //   sid : response.sid,
+    //   title: response.title,    
+    //   // author : response.author.name,
+    //   desc : response.description
+    // };
+    var artData = JSON.parse(response);
+   console.log(JSON.parse(response));
+   // console.log(views);    
     var artTemplate = views['art-partial'];
     // console.log(artTemplate);
     //document.getElementById("pictureGrid").innerHTML = "rash";
-     document.getElementById("pictureGrid").innerHTML = artTemplate(response);
-
-
-  };  
+     document.getElementById("pictureGrid").innerHTML = artTemplate(artData);
+ };  
   
 
 };

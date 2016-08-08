@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
-	
+	  
 	app.get('/', function(req, res) {
 		res.render('pages/index');
 	});
@@ -20,7 +20,7 @@ module.exports = function(app) {
 		res.send('Thank you!');
 		console.log(req.body.firstname);
 		console.log(req.body.lastname);
-	});
+	});  
 
 	
 }  

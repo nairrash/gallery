@@ -7,7 +7,7 @@
  
     var Utility, AppState, LightBoxController;
     
-
+  
     AppState = require('./app.state'); 
   
 
