@@ -7,6 +7,9 @@ var htmlController = require('./controllers/htmlController');
 var port = process.env.PORT || 3000;
 
 app.use('/assets', express.static(__dirname + '/public/assets'));
+app.use('/', express.static(__dirname + '/public/bower_components'));
+
+
 
 app.set('view engine', 'ejs');
 

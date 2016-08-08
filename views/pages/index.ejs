@@ -1,14 +1,54 @@
-<html>
-	<head>
-		<link href="assets/style.css" type="text/css" rel="stylesheet" />
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js" ></script>
-	</head>
-	<body>
-		<h1>Hello world!</h1>
-		<form method="POST" action="/person">
-			First name: <input type="text" id="firstname" name="firstname" /><br />
-			Last name: <input type="text" id="lastname" name="lastname" /><br />
-			<input type="submit" value="Submit" />
-		</form>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<div id = "pictureGrid"></div>
+
+
+ <div class = "clearfix"></div>
+ <div id = "lgbg" class = "lightBoxBg"></div>
+<div id = "lg" class="lightBox">
+  <span id = "prev" class = "prev"><i class="fa fa-arrow-left fa-3x"" aria-hidden="true"></i>
+</span>
+  <img id = "lgImage" src = "" />
+  <span id = "next" class = "next"><i class="fa fa-arrow-right fa-3x" aria-hidden="true"></i>
+</span>
+</div>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+
+<script src="assets/js/main.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>-->
+<script src = "/handlebars/handlebars.js"></script>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
