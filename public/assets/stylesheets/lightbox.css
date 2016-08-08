@@ -1,3 +1,6 @@
+.no-scroll {
+  overflow: hidden; }
+
 .lightBoxBg {
   position: fixed;
   left: 0px;
@@ -11,7 +14,7 @@
   position: fixed;
   left: 40%;
   top: 40%;
-  margin: -4em 0 0 -10em;
+  margin: -10em 0 0 -10em;
   max-width: 100%;
   display: none; }
 
