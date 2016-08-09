@@ -1,23 +1,29 @@
 var superagent = require('superagent');
-// var consolidate = require('consolidate');
+var conf = require('../conf'); 
 
-var user = 'nairrashmi1406';
+
+
+// var user = 'nairrashmi1406';  
 var story_slug = 'nature';
 var story_slug2 = 'plants';
 var story_slug3 = 'cars';
-var story_slug4 = 'about'
+var story_slug4 = 'about';
 
 
-//Paste your values
-var api_key = "57a6d5cd8d05fbea7a65bf7c";
-var username = "nairrashmi1406";
-var _token = "";
+
+
+var api_key = conf.api_key;
+var username = conf.username;
+var _token = conf.token;
+var user = conf.user;
+var apiUrl = conf.apiUrl;
+
 
 module.exports = function(app) {
 
 app.get('/art',function(req, res,next){
   //Fetch elements from Storify API
-  superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug)
+  superagent.get(apiUrl + user + "/" + story_slug)
     .query({api_key: api_key,
       username: username,
       _token: _token})
@@ -37,7 +43,7 @@ app.get('/art',function(req, res,next){
 
 app.get('/nature',function(req, res, next){
   //Fetch elements from Storify API
-  superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug2)
+  superagent.get(apiUrl+ user + "/" + story_slug2)
     .query({api_key: api_key,
       username: username,
       _token: _token})
@@ -54,7 +60,7 @@ app.get('/nature',function(req, res, next){
 
 app.get('/about',function(req, res, next){
   //Fetch elements from Storify API
-  superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug3)
+  superagent.get(apiUrl + user + "/" + story_slug4)
     .query({api_key: api_key,
       username: username,
       _token: _token})
@@ -70,7 +76,7 @@ app.get('/about',function(req, res, next){
 });
 app.get('/cars',function(req, res){
 
-  superagent.get("http://api.storify.com/v1/stories/" + user + "/" + story_slug3)
+  superagent.get(apiUrl + user + "/" + story_slug3)
     .query({api_key: api_key,
       username: username,
       _token: _token})
