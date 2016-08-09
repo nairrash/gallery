@@ -38,12 +38,12 @@ var ApiService = function ApiService(utility){
     utility.get(request,this.storeCars.bind(this,callback));
     
   };
-
+  
   this.storeArt = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
-    callback(request, response);
+    callback(request, response);    
   };
-
+  
   this.storeNature = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
     callback(request, response);

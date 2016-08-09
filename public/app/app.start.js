@@ -16,10 +16,10 @@
 
     var utility = new Utility();
    var lightbox = new LightBoxController(utility);
-    var appstate = new AppState(utility);
+    var appstate = new AppState(utility,lightbox);
         
 
-    lightbox.startListener();
+    //lightbox.startListener();
     appstate.start();
 
 

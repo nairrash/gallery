@@ -1,10 +1,8 @@
-var AppState = function (utility) {
+var AppState = function (utility,lightbox) {
 
   'use strict';
 
-  this.state = {
-    current : ''
-  };
+
   var views= require('../assets/partials/templates');
 
   var api = utility.api;
@@ -23,7 +21,7 @@ var AppState = function (utility) {
   this.route = function () {
     //console.log(location.hash);
     // we use current to track the actual page, then this function watches for hash change
-    var current = this.state.current;
+
     var locationHash = location.hash;
     switch(locationHash) {
       case ('#art')   : this.initializeView('art');
@@ -32,14 +30,14 @@ var AppState = function (utility) {
                       break;
       case('#cars') : this.initializeView('cars');
                       break;
-      default         : location.hash = '#art';
+      default         : location.hash = '#nature';
                           break;
     }  
 };  
 
   this.initializeView = function (route) {
     var controller;
-    this.state.current = '#/' + route;
+  
     switch(route) {
       case 'art':  api.getArt(this.initializePage.bind(this));
                   break;
@@ -47,7 +45,7 @@ var AppState = function (utility) {
                   break;
       case 'cars' : api.getCars(this.initializePage.bind(this));
                   break;
-      default : api.getArt(this.initializePage.bind(this));
+      default : api.getNature(this.initializePage.bind(this));
      
     }
 
@@ -58,14 +56,10 @@ var AppState = function (utility) {
     var gridTemplate = views['art-partial'];
 
      document.getElementById("pictureGrid").innerHTML = gridTemplate(data);
+     lightbox.startListener();
  }; 
 
-//  this.initializeNaturePage = function(request,response){
-//     var natureData = JSON.parse(response);
-//     var natureTemplate = views['art-partial'];    
-
-//      document.getElementById("pictureGrid").innerHTML = natureTemplate(natureData);
-//  };  
+ 
   
 
 };

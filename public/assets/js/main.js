@@ -39,12 +39,12 @@ var ApiService = function ApiService(utility){
     utility.get(request,this.storeCars.bind(this,callback));
     
   };
-
+  
   this.storeArt = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
-    callback(request, response);
+    callback(request, response);    
   };
-
+  
   this.storeNature = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
     callback(request, response);
@@ -101,23 +101,21 @@ var ApiService = function ApiService(utility){
 
     var utility = new Utility();
    var lightbox = new LightBoxController(utility);
-    var appstate = new AppState(utility);
+    var appstate = new AppState(utility,lightbox);
         
 
-    lightbox.startListener();
+    //lightbox.startListener();
     appstate.start();
 
 
   }  
 }());
 },{"./app.state":3,"./lightbox.controller":4,"./utility.service":5}],3:[function(require,module,exports){
-var AppState = function (utility) {
+var AppState = function (utility,lightbox) {
 
   'use strict';
 
-  this.state = {
-    current : ''
-  };
+
   var views= require('../assets/partials/templates');
 
   var api = utility.api;
@@ -136,7 +134,7 @@ var AppState = function (utility) {
   this.route = function () {
     //console.log(location.hash);
     // we use current to track the actual page, then this function watches for hash change
-    var current = this.state.current;
+
     var locationHash = location.hash;
     switch(locationHash) {
       case ('#art')   : this.initializeView('art');
@@ -145,14 +143,14 @@ var AppState = function (utility) {
                       break;
       case('#cars') : this.initializeView('cars');
                       break;
-      default         : location.hash = '#art';
+      default         : location.hash = '#nature';
                           break;
     }  
 };  
 
   this.initializeView = function (route) {
     var controller;
-    this.state.current = '#/' + route;
+  
     switch(route) {
       case 'art':  api.getArt(this.initializePage.bind(this));
                   break;
@@ -160,7 +158,7 @@ var AppState = function (utility) {
                   break;
       case 'cars' : api.getCars(this.initializePage.bind(this));
                   break;
-      default : api.getArt(this.initializePage.bind(this));
+      default : api.getNature(this.initializePage.bind(this));
      
     }
 
@@ -171,14 +169,10 @@ var AppState = function (utility) {
     var gridTemplate = views['art-partial'];
 
      document.getElementById("pictureGrid").innerHTML = gridTemplate(data);
+     lightbox.startListener();
  }; 
 
-//  this.initializeNaturePage = function(request,response){
-//     var natureData = JSON.parse(response);
-//     var natureTemplate = views['art-partial'];    
-
-//      document.getElementById("pictureGrid").innerHTML = natureTemplate(natureData);
-//  };  
+ 
   
 
 };
@@ -191,12 +185,12 @@ var LightBoxController = function(utility){
   var lightBox = document.getElementById('lg');
   var lightBoxImage = document.getElementById('lgImage');
   var body = document.body;
-  var images = document.getElementsByClassName('thumbnail');
-  var totalImages = images.length;
+  var totalImages = 0;
   var prev = document.getElementById('prev');
   var next = document.getElementById('next');
   var currentImageId = 0;
-
+  var images= '';
+//console.log(images);
 
 function dimissLightBox (){
   if(utility.hasClass(body,'no-scroll')){
@@ -248,6 +242,9 @@ function changeLightBoxElement(id){
 
 
   this.startListener = function startListener(){
+    images =  document.getElementsByClassName('thumbnail');
+    totalImages = images.length;
+
 
     for (var i = 0; i < images.length; i++){
       images[i].addEventListener('click', startLightBox.bind(this,i));
@@ -348,7 +345,7 @@ module.exports = Utility;
 this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<li>\n\n<img src = \""
+  return "<li class=\"thumbnail\">\n\n<img src = \""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
     + "\" title=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
@@ -360,6 +357,6 @@ this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,
 
   return "\n<div>\n <ul>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "</ul> \n     \n\n</div>      ";
+    + "</ul> \n     \n\n</div>        ";
 },"useData":true});
 },{}]},{},[2]);
