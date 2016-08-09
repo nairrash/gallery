@@ -6,7 +6,7 @@
   function documentReady () {
  
     var Utility, AppState, LightBoxController;
-    
+     
   
     AppState = require('./app.state'); 
   
@@ -15,6 +15,7 @@
     LightBoxController = require('./lightbox.controller');
 
     var utility = new Utility();
+    utility.navButtonResponse();
    var lightbox = new LightBoxController(utility);
     var appstate = new AppState(utility,lightbox);
         
@@ -22,6 +23,6 @@
     //lightbox.startListener();
     appstate.start();
 
-
+  
   }  
-}());
+}());  

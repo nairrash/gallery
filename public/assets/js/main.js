@@ -4,11 +4,11 @@ var ApiService = function ApiService(utility){
   
   var HISTORY_LIMIT = 25;    
 
-  this.history = {  
+  this.history = {    
     art :[],  
     nature : [],  
-    cars : []
-  };
+    cars : [] 
+  };  
   
   this.getArt = function getArt(callback) {
     var request = {
@@ -91,7 +91,7 @@ var ApiService = function ApiService(utility){
   function documentReady () {
  
     var Utility, AppState, LightBoxController;
-    
+     
   
     AppState = require('./app.state'); 
   
@@ -100,6 +100,7 @@ var ApiService = function ApiService(utility){
     LightBoxController = require('./lightbox.controller');
 
     var utility = new Utility();
+    utility.navButtonResponse();
    var lightbox = new LightBoxController(utility);
     var appstate = new AppState(utility,lightbox);
         
@@ -107,34 +108,20 @@ var ApiService = function ApiService(utility){
     //lightbox.startListener();
     appstate.start();
 
-
+  
   }  
-}());
+}());  
 },{"./app.state":3,"./lightbox.controller":4,"./utility.service":5}],3:[function(require,module,exports){
 var AppState = function (utility,lightbox) {
-
   'use strict';
-
-
   var views= require('../assets/partials/templates');
-
   var api = utility.api;
   this.start = function () { 
-    // this.watchLocation();
-
     window.addEventListener('hashchange', this.route.bind(this));
     this.route();
   };
-
-  // this.watchLocation = function () {
-  //   console.log("hash changed!");
-  //   window.addEventListener('hashchange', this.route.bind(this));
-  // };
-
+  
   this.route = function () {
-    //console.log(location.hash);
-    // we use current to track the actual page, then this function watches for hash change
-
     var locationHash = location.hash;
     switch(locationHash) {
       case ('#art')   : this.initializeView('art');
@@ -144,13 +131,12 @@ var AppState = function (utility,lightbox) {
       case('#cars') : this.initializeView('cars');
                       break;
       default         : location.hash = '#nature';
-                          break;
+                          break;  
     }  
-};  
+};
 
-  this.initializeView = function (route) {
+this.initializeView = function (route) {
     var controller;
-  
     switch(route) {
       case 'art':  api.getArt(this.initializePage.bind(this));
                   break;
@@ -239,7 +225,7 @@ function changeLightBoxElement(id){
   }
 
 } 
-
+     
 
   this.startListener = function startListener(){
     images =  document.getElementsByClassName('thumbnail');
@@ -284,7 +270,7 @@ this.hasClass = function hasClass(element,cls) {
 
 
 this.removeClass =function(element,cls){
-  element.classList.remove(cls);
+  element.classList.remove(cls);  
 };
 
 this.get = function (o, callback) {
@@ -338,6 +324,21 @@ this.setGetParameters = function (o) {
     return parameters;
   };
 
+  this.navButtonResponse = function navButtonResponse() {
+    var navController = document.getElementById('navClicker');
+    navController.addEventListener('click',switchNavClass.bind(this));
+  
+};
+
+function switchNavClass(){
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }  
+}  
+
 };
 
 module.exports = Utility;
@@ -351,11 +352,11 @@ this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
-    + "\"\n  \n</li> \n \n";
+    + "\"\n  \n</li> \n   \n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "\n<div>\n <ul>\n"
+  return "\n<div>\n <ul style=\"padding-left:1em\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</ul> \n     \n\n</div>        ";
 },"useData":true});

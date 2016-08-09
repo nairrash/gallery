@@ -1,27 +1,13 @@
 var AppState = function (utility,lightbox) {
-
   'use strict';
-
-
   var views= require('../assets/partials/templates');
-
   var api = utility.api;
   this.start = function () { 
-    // this.watchLocation();
-
     window.addEventListener('hashchange', this.route.bind(this));
     this.route();
   };
-
-  // this.watchLocation = function () {
-  //   console.log("hash changed!");
-  //   window.addEventListener('hashchange', this.route.bind(this));
-  // };
-
+  
   this.route = function () {
-    //console.log(location.hash);
-    // we use current to track the actual page, then this function watches for hash change
-
     var locationHash = location.hash;
     switch(locationHash) {
       case ('#art')   : this.initializeView('art');
@@ -31,13 +17,12 @@ var AppState = function (utility,lightbox) {
       case('#cars') : this.initializeView('cars');
                       break;
       default         : location.hash = '#nature';
-                          break;
+                          break;  
     }  
-};  
+};
 
-  this.initializeView = function (route) {
+this.initializeView = function (route) {
     var controller;
-  
     switch(route) {
       case 'art':  api.getArt(this.initializePage.bind(this));
                   break;

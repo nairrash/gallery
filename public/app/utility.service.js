@@ -12,7 +12,7 @@ this.hasClass = function hasClass(element,cls) {
 
 
 this.removeClass =function(element,cls){
-  element.classList.remove(cls);
+  element.classList.remove(cls);  
 };
 
 this.get = function (o, callback) {
@@ -65,6 +65,21 @@ this.setGetParameters = function (o) {
 
     return parameters;
   };
+
+  this.navButtonResponse = function navButtonResponse() {
+    var navController = document.getElementById('navClicker');
+    navController.addEventListener('click',switchNavClass.bind(this));
+  
+};
+
+function switchNavClass(){
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }  
+}  
 
 };
 

@@ -58,7 +58,7 @@ function changeLightBoxElement(id){
   }
 
 } 
-
+     
 
   this.startListener = function startListener(){
     images =  document.getElementsByClassName('thumbnail');

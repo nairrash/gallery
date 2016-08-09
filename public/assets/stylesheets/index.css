@@ -1,3 +1,6 @@
+body {
+  color: #fff; }
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
@@ -43,9 +46,9 @@ ul.topnav li.icon {
 
 .wrap-grid {
   display: flex;
-  flex-wrap: wrap; }
-  .wrap-grid ul {
-    padding-left: 1em; }
+  flex-wrap: wrap;
+  background-color: #fafafa ul;
+    background-color-padding-left: 0; }
   .wrap-grid li {
     display: inline-block;
     margin-bottom: 8px;
