@@ -1,5 +1,5 @@
 .wrap-grid{
-  width: 80%;
+  // width: 90%;
   margin: 30px auto;
 
 
@@ -11,7 +11,7 @@ div {
 li {
   display: inline-block;
   margin-bottom: 8px;
-  width: calc(50% - 4px);
+  width: calc(95% - 4px);
   margin-right: 8px;
   text-decoration: none;
   color: black;
@@ -21,7 +21,7 @@ li:nth-of-type(2n) {
   margin-right: 0;
 }
 
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 40em) {
   li {
     width: calc(25% - 6px);
   }
@@ -34,6 +34,8 @@ li:nth-of-type(2n) {
     margin-right: 0;
   }
 }
+
+
 
 li:hover img {
   transform: scale(1.15);
