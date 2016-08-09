@@ -16,10 +16,12 @@ var AppState = function (utility,lightbox) {
                       break;
       case('#cars') : this.initializeView('cars');
                       break;
+      case('#about') : this.initializeView('about');
+                      break;
       default         : location.hash = '#nature';
                           break;  
-    }  
-};
+    }    
+};  
 
 this.initializeView = function (route) {
     var controller;
@@ -30,6 +32,9 @@ this.initializeView = function (route) {
                   break;
       case 'cars' : api.getCars(this.initializePage.bind(this));
                   break;
+      case 'about' : api.getAbout(this.initializePage.bind(this));
+                  break;
+      
       default : api.getNature(this.initializePage.bind(this));
      
     }

@@ -4,14 +4,15 @@ var wrap = require('gulp-wrap');
 var declare = require('gulp-declare');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
-
+var rename =require('gulp-rename');
 var browserify = require('browserify');
- sass   = require('gulp-sass');
+ var sass   = require('gulp-ruby-sass');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
-
+var filename = 'app.start.js';
 
 
 gulp.task('compile-templates', function() {
@@ -31,30 +32,29 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('build-css', function() {
-  return gulp.src('./public/sass/**/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./public/assets/stylesheets'));
-});
-
 gulp.task('browserify', function() {
-  // Grabs the app.js file
   return browserify('./public/app/app.start.js')
-  // bundles it and creates a file called main.js
     .bundle()
-    .pipe(source('main.js'))
-    // saves it the public/js/ directory
+    .pipe(source('bundle.js')) // gives streaming vinyl file object
+    .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+    .pipe(uglify()) // now gulp-uglify works 
     .pipe(gulp.dest('./public/assets/js'));
 });
+  
 
 
-
+gulp.task('sass', function() {  
+    return sass('./public/sass/index.scss', {style: 'compressed'})
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./public/assets/stylesheets'));
+});
+   
 gulp.task('watch:js', function() {
-  gulp.watch('./public/app/**/*.js', ['jshint','browserify'])
+  gulp.watch('./public/app/**/*.js', ['jshint','browserify'])  
 });
 
 gulp.task('watch:css', function() {
-  gulp.watch('./public/sass/**/*.scss', ['build-css'])
+  gulp.watch('./public/sass/**/*.scss', ['sass'])     
 });
 
 gulp.task('watch:templates', function() {
@@ -62,4 +62,5 @@ gulp.task('watch:templates', function() {
 });
 
 // gulp.task('default', ['minify', 'fix-template']);
-gulp.task('default', ['watch:js','watch:css','watch:templates']);
+gulp.task('default', ['sass','browserify','compile-templates']);
+gulp.task('watch',['watch:js','watch:css','watch:templates']);
