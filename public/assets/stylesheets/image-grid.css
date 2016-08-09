@@ -1,0 +1,33 @@
+.wrap-grid div {
+  display: flex;
+  flex-wrap: wrap; }
+
+.wrap-grid li {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: calc(95% - 4px);
+  margin-right: 8px;
+  text-decoration: none;
+  color: black; }
+
+.wrap-grid li:nth-of-type(2n) {
+  margin-right: 0; }
+
+@media screen and (min-width: 40em) {
+  .wrap-grid li {
+    width: calc(25% - 6px); }
+  .wrap-grid li:nth-of-type(2n) {
+    margin-right: 8px; }
+  .wrap-grid li:nth-of-type(4n) {
+    margin-right: 0; } }
+
+.wrap-grid li:hover img {
+  transform: scale(1.15); }
+
+.wrap-grid img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: #ccc;
+  transition: transform .2s ease-in-out; }

@@ -4,12 +4,12 @@ var LightBoxController = function(utility){
   var lightBox = document.getElementById('lg');
   var lightBoxImage = document.getElementById('lgImage');
   var body = document.body;
-  var images = document.getElementsByClassName('thumbnail');
-  var totalImages = images.length;
+  var totalImages = 0;
   var prev = document.getElementById('prev');
   var next = document.getElementById('next');
   var currentImageId = 0;
-
+  var images= '';
+//console.log(images);
 
 function dimissLightBox (){
   if(utility.hasClass(body,'no-scroll')){
@@ -61,6 +61,9 @@ function changeLightBoxElement(id){
 
 
   this.startListener = function startListener(){
+    images =  document.getElementsByClassName('thumbnail');
+    totalImages = images.length;
+
 
     for (var i = 0; i < images.length; i++){
       images[i].addEventListener('click', startLightBox.bind(this,i));

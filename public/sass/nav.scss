@@ -11,16 +11,20 @@ $white:#ffffff;
           font-smoothing: $smoother;  
 }
 body {
+    width: 80%;
+    margin: 30px auto;
     background: #fefefe;
     @include font-smoothing(antialiased);
     font-family: $bodyFont;
     color:$white;
     background-color: $primary-color;
+    
 }
 
 nav {
+  
   background-color: $dark-nav;
-  .brand {
+  .brand {  
     margin-left: 2em;
     letter-spacing: 0.2em;
     margin-top: 1em;

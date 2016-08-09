@@ -1,4 +1,6 @@
 body {
+  width: 80%;
+  margin: 30px auto;
   background: #fefefe;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
