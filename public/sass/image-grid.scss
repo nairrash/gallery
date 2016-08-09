@@ -1,6 +1,7 @@
 .wrap-grid{
   // width: 90%;
-  margin: 30px auto;
+  //  width: 80%;
+    // margin: 30px auto;
 
 
 div {
@@ -22,7 +23,7 @@ li:nth-of-type(2n) {
 }
 
 @media screen and (min-width: 40em) {
-  li {
+  li {  
     width: calc(25% - 6px);
   }
   

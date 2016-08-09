@@ -4,7 +4,7 @@ var app = express();
 var apiController = require('./controllers/apiController');
 var htmlController = require('./controllers/htmlController');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 app.use('/assets', express.static(__dirname + '/public/assets'));
 app.use('/', express.static(__dirname + '/public/bower_components'));
@@ -22,4 +22,4 @@ htmlController(app);
 
 apiController(app);
 
-app.listen(port);
+app.listen(port);  
