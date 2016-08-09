@@ -3,6 +3,7 @@ var LightBoxController = function(utility){
   var lightBoxBg = document.getElementById('lgbg');
   var lightBox = document.getElementById('lg');
   var lightBoxImage = document.getElementById('lgImage');
+  var imageTitle = document.getElementById("imageTitle");
   var body = document.body;
   var totalImages = 0;
   var prev = document.getElementById('prev');
@@ -20,9 +21,11 @@ function dimissLightBox (){
   }
 function startLightBox(id,image){
   var source = image.target.src;
-
+ 
+  var title = image.target.title;
   currentImageId = id;
   lightBoxImage.src = source;
+  imageTitle.innerHTML = title;
   if(!utility.hasClass(body,'no-scroll')){
     body.className += "no-scroll";
   }
@@ -44,8 +47,11 @@ function startLightBox(id,image){
 function changeLightBoxElement(id){
   currentImageId = id;
   var image = images[id].getElementsByTagName('img')[0];
-  //console.log(image);
+  var title = image.title;
   lightBoxImage.src = image.src;
+    imageTitle.innerHTML = title;
+
+  
    if(id === 0){
     prev.style.display = 'none';
   }  
@@ -58,7 +64,7 @@ function changeLightBoxElement(id){
   }
 
 } 
-     
+
 
   this.startListener = function startListener(){
     images =  document.getElementsByClassName('thumbnail');
