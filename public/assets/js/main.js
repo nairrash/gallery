@@ -6,7 +6,7 @@ var ApiService = function ApiService(utility){
 
   this.history = {
     art :[],  
-    nature : [],
+    nature : [],  
     cars : []
   };
   
@@ -15,15 +15,42 @@ var ApiService = function ApiService(utility){
       url : '/art',
       parameters : {}
     };
-
-    // var storedResponse = this.getFromHistory('art');
-    // if(storedResponse){
-    //   return callback(request, storedResponse);
-    // }
+    
     utility.get(request,this.storeArt.bind(this,callback));
     
   };
+
+  this.getNature = function getNature(callback) {
+    var request = {
+      url : '/nature',
+      parameters : {}
+    };
+    
+    utility.get(request,this.storeNature.bind(this,callback));
+    
+  };
+
+  this.getCars = function getCars(callback) {
+    var request = {
+      url : '/cars',
+      parameters : {}
+    };
+    
+    utility.get(request,this.storeCars.bind(this,callback));
+    
+  };
+
   this.storeArt = function (callback, request, response) {  
+    //this.updateHistory('details', state.source.name, response);
+    callback(request, response);
+  };
+
+  this.storeNature = function (callback, request, response) {  
+    //this.updateHistory('details', state.source.name, response);
+    callback(request, response);
+  };    
+
+  this.storeCars = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
     callback(request, response);
   };
@@ -40,7 +67,7 @@ var ApiService = function ApiService(utility){
       }
     }
 
-    this.history[view].push({  
+    this.history[view].push({    
       source: source,
       response: response
     });
@@ -125,55 +152,33 @@ var AppState = function (utility) {
 
   this.initializeView = function (route) {
     var controller;
-
-    //this.state.title = this.setTitleFromRoute(route);
-    //this.state.previous = this.state.current;
     this.state.current = '#/' + route;
-
-    
-
     switch(route) {
-      case 'art':  
-      api.getArt(this.processActors.bind(this));
-        //controller = require('./explore.controller');
-        //this.state.view = views.explore;
-        //this.state.controller = new controller(this.state, utility);
-        break;
-      case 'explorer':    
-        // controller = require('./deepField.controller');
-        // this.state.view = views['deep-field'];
-        // this.state.controller = new controller(this.state, $, d3, utility);
-        break;
-      case 'details':
-          // controller = require('./detail.controller');
-        // this.state.view = this.assignDetailViewByActorType(this.state.source.type);
-        // this.state.controller = new controller(this.state, $, d3, utility);
-        break;
-      // case 'connections':
-   //   controller = require('./drillDown.controller');
-      //   this.state.view = views.drilldown;
-      //   this.state.controller = new controller(this.state, $, d3, utility);
-      //   break;  
+      case 'art':  api.getArt(this.initializePage.bind(this));
+                  break;
+      case 'nature': api.getNature(this.initializePage.bind(this));
+                  break;
+      case 'cars' : api.getCars(this.initializePage.bind(this));
+                  break;
+      default : api.getArt(this.initializePage.bind(this));
+     
     }
 
-    // this.state.controller.initialize();
   };  
 
-  this.processActors = function(request,response){
-    // var artData = {
-    //   sid : response.sid,
-    //   title: response.title,    
-    //   // author : response.author.name,
-    //   desc : response.description
-    // };
-    var artData = JSON.parse(response);
-   console.log(JSON.parse(response));
-   // console.log(views);    
-    var artTemplate = views['art-partial'];
-    // console.log(artTemplate);
-    //document.getElementById("pictureGrid").innerHTML = "rash";
-     document.getElementById("pictureGrid").innerHTML = artTemplate(artData);
- };  
+  this.initializePage = function(request,response){
+    var data = JSON.parse(response);
+    var gridTemplate = views['art-partial'];
+
+     document.getElementById("pictureGrid").innerHTML = gridTemplate(data);
+ }; 
+
+//  this.initializeNaturePage = function(request,response){
+//     var natureData = JSON.parse(response);
+//     var natureTemplate = views['art-partial'];    
+
+//      document.getElementById("pictureGrid").innerHTML = natureTemplate(natureData);
+//  };  
   
 
 };
@@ -343,7 +348,7 @@ module.exports = Utility;
 this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<a href = \""
+  return "<li href = \""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
     + "\">\n\n<img src = \""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.src : stack1), depth0))
@@ -351,12 +356,12 @@ this["art-partial"] = Handlebars.template({"1":function(depth0,helpers,partials,
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.image : stack1)) != null ? stack1.caption : stack1), depth0))
-    + "\"\n     \n</a>\n";
+    + "\"\n     \n</li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "\n<div>\n"
+  return "\n<div>\n  <ul>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.elements : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n</div>    ";
+    + "</ul>      \n\n</div>      ";
 },"useData":true});
 },{}]},{},[2]);

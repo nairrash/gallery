@@ -39,55 +39,33 @@ var AppState = function (utility) {
 
   this.initializeView = function (route) {
     var controller;
-
-    //this.state.title = this.setTitleFromRoute(route);
-    //this.state.previous = this.state.current;
     this.state.current = '#/' + route;
-
-    
-
     switch(route) {
-      case 'art':  
-      api.getArt(this.processActors.bind(this));
-        //controller = require('./explore.controller');
-        //this.state.view = views.explore;
-        //this.state.controller = new controller(this.state, utility);
-        break;
-      case 'explorer':    
-        // controller = require('./deepField.controller');
-        // this.state.view = views['deep-field'];
-        // this.state.controller = new controller(this.state, $, d3, utility);
-        break;
-      case 'details':
-          // controller = require('./detail.controller');
-        // this.state.view = this.assignDetailViewByActorType(this.state.source.type);
-        // this.state.controller = new controller(this.state, $, d3, utility);
-        break;
-      // case 'connections':
-   //   controller = require('./drillDown.controller');
-      //   this.state.view = views.drilldown;
-      //   this.state.controller = new controller(this.state, $, d3, utility);
-      //   break;  
+      case 'art':  api.getArt(this.initializePage.bind(this));
+                  break;
+      case 'nature': api.getNature(this.initializePage.bind(this));
+                  break;
+      case 'cars' : api.getCars(this.initializePage.bind(this));
+                  break;
+      default : api.getArt(this.initializePage.bind(this));
+     
     }
 
-    // this.state.controller.initialize();
   };  
 
-  this.processActors = function(request,response){
-    // var artData = {
-    //   sid : response.sid,
-    //   title: response.title,    
-    //   // author : response.author.name,
-    //   desc : response.description
-    // };
-    var artData = JSON.parse(response);
-   console.log(JSON.parse(response));
-   // console.log(views);    
-    var artTemplate = views['art-partial'];
-    // console.log(artTemplate);
-    //document.getElementById("pictureGrid").innerHTML = "rash";
-     document.getElementById("pictureGrid").innerHTML = artTemplate(artData);
- };  
+  this.initializePage = function(request,response){
+    var data = JSON.parse(response);
+    var gridTemplate = views['art-partial'];
+
+     document.getElementById("pictureGrid").innerHTML = gridTemplate(data);
+ }; 
+
+//  this.initializeNaturePage = function(request,response){
+//     var natureData = JSON.parse(response);
+//     var natureTemplate = views['art-partial'];    
+
+//      document.getElementById("pictureGrid").innerHTML = natureTemplate(natureData);
+//  };  
   
 
 };

@@ -1,40 +1,31 @@
-div .img {
-  border: 1px solid #ccc; }
-  div .img:hover {
-    border: 1px solid #777; }
-  div .img img {
-    max-width: 100%;
-    height: auto; }
-
-div .desc {
-  padding: 1em;
-  text-align: center; }
-
-* {
-  box-sizing: border-box; }
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 24.99999%;
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 25%; }
-  .responsive img {
-    position: absolute; }
-
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-    padding-bottom: 50%; } }
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-    padding-bottom: 80%; } }
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both; }
+.wrap-grid {
+  font-size: 0; }
+  .wrap-grid ul {
+    list-style-type: none; }
+    .wrap-grid ul li {
+      font-size: 16px;
+      overflow: hidden;
+      display: inline-block;
+      margin-bottom: 0.5em;
+      width: calc(50% - 4px);
+      margin-right: 8px; }
+    .wrap-grid ul li:nth-of-type(2n) {
+      margin-right: 0; }
+    @media screen and (min-width: 50em) {
+      .wrap-grid ul li {
+        width: calc(25% - 6px); }
+      .wrap-grid ul li:nth-of-type(2n) {
+        margin-right: 8px; }
+      .wrap-grid ul li:nth-of-type(4n) {
+        margin-right: 0; } }
+    .wrap-grid ul li:hover img {
+      transform: scale(1.15); }
+    .wrap-grid ul figure {
+      margin: 0; }
+    .wrap-grid ul img {
+      border: none;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      background: #ccc;
+      transition: transform .2s ease-in-out; }

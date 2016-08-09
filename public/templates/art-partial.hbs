@@ -1,11 +1,13 @@
 
 <div>
+  <ul>
 {{#each elements}} 
-<a href = "{{data.image.src}}">
+<li href = "{{data.image.src}}">
 
 <img src = "{{ data.image.src}}" title="{{data.image.caption}}" alt="{{data.image.caption}}"
      
-</a>
-{{/each}}         
+</li>
+{{/each}}   
+</ul>      
 
-</div>    
+</div>      

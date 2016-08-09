@@ -5,7 +5,7 @@ var ApiService = function ApiService(utility){
 
   this.history = {
     art :[],  
-    nature : [],
+    nature : [],  
     cars : []
   };
   
@@ -14,15 +14,42 @@ var ApiService = function ApiService(utility){
       url : '/art',
       parameters : {}
     };
-
-    // var storedResponse = this.getFromHistory('art');
-    // if(storedResponse){
-    //   return callback(request, storedResponse);
-    // }
+    
     utility.get(request,this.storeArt.bind(this,callback));
     
   };
+
+  this.getNature = function getNature(callback) {
+    var request = {
+      url : '/nature',
+      parameters : {}
+    };
+    
+    utility.get(request,this.storeNature.bind(this,callback));
+    
+  };
+
+  this.getCars = function getCars(callback) {
+    var request = {
+      url : '/cars',
+      parameters : {}
+    };
+    
+    utility.get(request,this.storeCars.bind(this,callback));
+    
+  };
+
   this.storeArt = function (callback, request, response) {  
+    //this.updateHistory('details', state.source.name, response);
+    callback(request, response);
+  };
+
+  this.storeNature = function (callback, request, response) {  
+    //this.updateHistory('details', state.source.name, response);
+    callback(request, response);
+  };    
+
+  this.storeCars = function (callback, request, response) {  
     //this.updateHistory('details', state.source.name, response);
     callback(request, response);
   };
@@ -39,7 +66,7 @@ var ApiService = function ApiService(utility){
       }
     }
 
-    this.history[view].push({  
+    this.history[view].push({    
       source: source,
       response: response
     });
