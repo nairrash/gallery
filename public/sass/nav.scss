@@ -11,6 +11,8 @@ $white:#ffffff;
           font-smoothing: $smoother;  
 }
 body {
+    width: 80%;
+    margin: 30px auto;
     background: #fefefe;
     @include font-smoothing(antialiased);
     font-family: $bodyFont;

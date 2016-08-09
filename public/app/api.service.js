@@ -1,9 +1,9 @@
 var ApiService = function ApiService(utility){
-  'use strict';
+  'use strict';  
   
-  var HISTORY_LIMIT = 25;
+  var HISTORY_LIMIT = 25;    
 
-  this.history = {
+  this.history = {  
     art :[],  
     nature : [],  
     cars : []
