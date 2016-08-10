@@ -9,7 +9,6 @@ var browserify = require('browserify');
  var sass   = require('gulp-ruby-sass');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var filename = 'app.start.js';
