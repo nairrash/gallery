@@ -42,4 +42,4 @@ jspm_packages
 
 /public/assets/bundle.js
 /public/assets/stylesheets/index.min.css
-
+./sass-cache/

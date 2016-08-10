@@ -1,7 +1,7 @@
 
 <snippet>
-  <content><![CDATA[
-# ${1:Storify API}
+  <content>
+# {1:Storify API}
 TODO: Write a project description
 
 ## Installation
@@ -34,6 +34,6 @@ I have not used any javascript libraries. I have used SASS for css
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
+</content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
