@@ -38,6 +38,6 @@ jspm_packages
 .node_repl_history  
 
 #auto-generated files  gulp -user will have to run gulp to install these files
-/public/assets/  
+/public/assets/
 .sass-cache/
 *.css.map  
