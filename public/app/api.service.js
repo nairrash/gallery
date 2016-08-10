@@ -6,7 +6,7 @@ var ApiService = function ApiService(utility){
 //later on or to store json for repeated calls
   this.history = {    
     art :[],  
-    nature : [],  
+    nature : [],    
     cars : [] ,
     about: []
   };  
