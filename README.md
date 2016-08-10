@@ -5,13 +5,17 @@
 TODO: Write a project description
 
 ## Installation
-`git clone git@github.com:nairrash/laze-coze.git`
+`git@github.com:nairrash/gallery.git`
 
 run `npm install`
 run `gulp`
 
 if you run into environmental variable settings issue try 
 `export NODE_ENV=development`
+
+some errors you might run into --for global installs :
+`npm install --global gulp-cli`   -for gulp
+`gem install sass`  -for sass
 
 ## usage
 http://{SERVER_URI}:3001
