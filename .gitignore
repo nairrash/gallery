@@ -37,6 +37,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+<<<<<<< HEAD
 #auto-generated files by gulp -user will have to run gulp to install these files
 
 
@@ -44,3 +45,7 @@ jspm_packages
 /public/assets/stylesheets/index.min.css
 .sass-cache/
 *.css.map
+=======
+.sass-cache/
+*.css.map
+>>>>>>> master
