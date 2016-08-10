@@ -3,7 +3,7 @@
   <content>
 ## Gallery app
 This project is meant to be a technical excercise.
-It is a web page that shows a grid of photo thumbnails; when a thumbnail is clicked, the photo
+It is a web page that shows a grid of photo thumbnails; when a  thumbnail is clicked, the photo is displayed n a lightbox view, with the ability to move to the next / previous photos and display the photo title
 
 ## Installation
 `git@github.com:nairrash/gallery.git`
@@ -36,7 +36,9 @@ I have intrepreted this as making this a single page application.
 So if you click on the top navigation elements , the page will not refresh
 
 >Do all of the above using only native JavaScript (no libraries such as jQuery, although CSS preprocessors are fine).    
-I have not used any javascript libraries. I have used SASS for css
+I have not used any javascript libraries. I have used SASS for css    
+
+
 ## common errors
 some errors you might run into --for global installs :
 `npm install --global gulp-cli`   -for gulp
