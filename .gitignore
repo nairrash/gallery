@@ -34,18 +34,10 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
-# Optional REPL history
-.node_repl_history
+# Optional REPL history   
+.node_repl_history  
 
-<<<<<<< HEAD
-#auto-generated files by gulp -user will have to run gulp to install these files
-
-
-/public/assets/bundle.js
-/public/assets/stylesheets/index.min.css
+#auto-generated files  gulp -user will have to run gulp to install these files
+/public/assets/
 .sass-cache/
-*.css.map
-=======
-.sass-cache/
-*.css.map
->>>>>>> master
+*.css.map  
