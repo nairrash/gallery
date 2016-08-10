@@ -8,7 +8,7 @@ var htmlController = require('./controllers/htmlController');
 //process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var port = conf.port;
 app.use('/assets', express.static(__dirname + '/public/assets'));
-app.use('/', express.static(__dirname + '/public/bower_components'));
+app.use('/', express.static(__dirname + '/node_modules'));
 
 
 
