@@ -21,7 +21,7 @@
         
 
     //lightbox.startListener();
-    appstate.start();    
+    appstate.start();       
 
   
   }  

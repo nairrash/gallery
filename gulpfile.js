@@ -26,6 +26,23 @@ gulp.task('compile-templates', function() {
     .pipe(gulp.dest('./public/assets/partials'));
 });
 
+
+gulp.task('templates', function(){
+  gulp.src('public/templates/*.hbs')
+    .pipe(handlebars({
+      handlebars: require('handlebars')
+    }))
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      //namespace: 'MyApp.templates',
+      noRedeclare: true, // Avoid duplicate declarations 
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('./public/assets/partials'));
+});
+
+
+
 gulp.task('jshint', function() {
   return gulp.src('./public/app/**/*.js')
     .pipe(jshint())
@@ -58,9 +75,9 @@ gulp.task('watch:css', function() {
 });
 
 gulp.task('watch:templates', function() {
-  gulp.watch('./public/templates/**/*.hbs', ['compile-templates'])
+  gulp.watch('./public/templates/**/*.hbs', ['templates'])
 });
 
 // gulp.task('default', ['minify', 'fix-template']);
-gulp.task('default', ['sass','browserify','compile-templates']);
+gulp.task('default', ['sass','browserify','templates']);
 gulp.task('watch',['watch:js','watch:css','watch:templates']);
