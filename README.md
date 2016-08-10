@@ -1,8 +1,9 @@
 
 <snippet>
   <content>
-# {1:Storify API}
-TODO: Write a project description
+## Gallery app
+This project is meant to be a technical excercise.
+It is a web page that shows a grid of photo thumbnails; when a thumbnail is clicked, the photo
 
 ## Installation
 `git@github.com:nairrash/gallery.git`
@@ -24,18 +25,17 @@ eg : http://localhost:3001
 
 
 ## Description
-> Access a public API and successfully retrieve data from it;
-
+> Access a public API and successfully retrieve data from it;    
 I am using Storify's API to access instagram feeds of me and my family
 
->Display that data on a page:
+>Display that data on a page:    
 I have used node backend(with express)
 
->Update the UI of a page without refreshing
+>Update the UI of a page without refreshing     
 I have intrepreted this as making this a single page application. 
 So if you click on the top navigation elements , the page will not refresh
 
-Do all of the above using only native JavaScript (no libraries such as jQuery, although CSS preprocessors are fine).
+Do all of the above using only native JavaScript (no libraries such as jQuery, although CSS preprocessors are fine).    
 I have not used any javascript libraries. I have used SASS for css
 ## common errors
 some errors you might run into --for global installs :
