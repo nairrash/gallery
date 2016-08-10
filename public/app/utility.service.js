@@ -28,7 +28,7 @@ this.get = function (o, callback) {
         }
         } 
         else {
-          failedResponse();
+          failedResponse();   
         }
       }
     };

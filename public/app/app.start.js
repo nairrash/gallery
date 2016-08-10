@@ -17,12 +17,12 @@
     var utility = new Utility();
     utility.navButtonResponse();
    var lightbox = new LightBoxController(utility);
-    var appstate = new AppState(utility,lightbox);
+    var appstate = new AppState(utility,lightbox);  
         
 
     //lightbox.startListener();
-    appstate.start();
+    appstate.start();    
 
   
   }  
-}());  
+}());     
